@@ -1,0 +1,24 @@
+img {
+    margin-right:10%;
+}
+.b {
+    width:20px;
+    float:right;
+    margin-left:20%;
+}
+
+
+.showtimeslist {
+    list-style: none;
+    margin-left:2%;   
+    width: 100%;
+    max-width: 100rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.buytickets{
+    text-align: center;
+    color:white;
+}

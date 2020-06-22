@@ -1,0 +1,49 @@
+.textover {
+  position:relative;
+  margin-right:3%;
+  margin-bottom:3%;
+
+}
+
+h3{
+  color:white;
+  font-size: 35pt;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+
+}
+
+
+.user-item__image {
+  width: 400px;
+  height: 400px;
+  margin-right: 1rem;
+}
+
+.textover:hover .user-item__image{
+  opacity:0.3;
+}
+.textover:hover .name{
+  opacity: 1;
+}
+.textover:hover h3{
+  visibility: visible;
+}
+
+
+tr{
+  
+  width:100%;
+}
+table{
+  margin-top:3%;
+  margin-left:35%;
+
+}
+td{
+  width:250px;
+  padding-right:10%;
+}
