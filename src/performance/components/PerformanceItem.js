@@ -17,7 +17,7 @@ const PerformanceItem = props => {
         {props.status}
         </td>
         <td>
-        {props.time}
+        {props.time.toString().split("GMT")[0]}
         </td>
         </tr>
         </React.Fragment>

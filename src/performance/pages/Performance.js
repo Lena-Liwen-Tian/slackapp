@@ -1,7 +1,8 @@
 
 import React, { useEffect,useState } from 'react';
 import PerformanceList from '../components/PerformanceList';
-
+import Calculate from '../components/Calculate';
+import Title from '../components/Title';
 const Performance = () => {
   const[LoadedPeformance,setLoadedPerformance] = useState([]);
   const[isLoading,setisLoading] = useState(false);
@@ -22,6 +23,7 @@ const Performance = () => {
           throw new Error(responseData.message);
         }
         setLoadedPerformance(responseData.data);
+ 
       } catch (err) {
         setError(err.message);
       }
@@ -48,12 +50,17 @@ const Performance = () => {
 
 
   return(       
-    // <React.Fragment>
-    // <PaginationPage postsPerPage={postsPerPage} totalPosts={LoadedMovies.length} paginate={paginate}/>
-    // isLoading && <div><LoadingSpinner /></div>)
-     !isLoading && <PerformanceList items={LoadedPeformance}/>)
-    // </React.Fragment>)
-  };
+    <React.Fragment>
+     {/* <PaginationPage postsPerPage={postsPerPage} totalPosts={LoadedMovies.length} paginate={paginate}/> */}
+     {/* isLoading && <div><LoadingSpinner /></div>) */}
+     {!isLoading && <Title/>}
+     {!isLoading && <Calculate items={LoadedPeformance}/>}
+     <br></br>
+     <hr></hr>
+     <br></br>
+     {!isLoading && <PerformanceList items={LoadedPeformance}/>}
+    </React.Fragment>)}
+
 
 export default Performance;
 
