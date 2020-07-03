@@ -27,7 +27,9 @@ const Performance = () => {
       } catch (err) {
         setError(err.message);
       }
+      
       setisLoading(false);
+      console.log("yes")
     };
 
     fetchPerformance();
