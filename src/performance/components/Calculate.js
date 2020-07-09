@@ -8,6 +8,7 @@ import { differenceInCalendarMonths } from 'date-fns';
 const Calculate = props => {
     let dict = {};
     var last = new Date(new Date().getTime() - (4 * 24 * 60 * 60 * 1000  + 11 * 60 * 60 * 1000));
+    
     props.items.map(item=>{
         if(!dict.hasOwnProperty(item.userid)){
             dict[item.userid] = {"name":item.name,"status":[],"time":[],"totaltime":""};
@@ -135,8 +136,26 @@ const Calculate = props => {
     //     }             
     // });
     // console.log(dict);
+    const fetchZapier = async()=>{
+    const options = {
+        method: "POST",
+        headers: {"Content-Type":'application/json'},
+        body:JSON.stringify({caculate:`${dict}`})
+    };
+    try{
+        const response = await fetch(`https://hooks.zapier.com/hooks/catch/2256470/o8atams/`,options);
+        const responseData = await response.json();
+          if(!response.ok){
+      
+            throw new Error(responseData.message);
+          }
+   
+        } catch (err) {
+          console.log(err.message);
+        }
+    }
+    fetchZapier();
 
-    
   return (
      Object.entries(dict).map( ([key, value]) => <p> {value.name}: {value.totaltime}</p> )
   ) 
