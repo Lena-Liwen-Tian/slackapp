@@ -5,6 +5,7 @@ import { differenceInCalendarMonths } from 'date-fns';
 
 
 
+
 const Calculate = props => {
     let dict = {};
     var last = new Date(new Date().getTime() - (4 * 24 * 60 * 60 * 1000  + 11 * 60 * 60 * 1000));
@@ -157,7 +158,16 @@ const Calculate = props => {
     // fetchZapier();
 
   return (
-     Object.entries(dict).map( ([key, value]) => <p> {value.name}: {value.totaltime}</p> )
+    <React.Fragment>
+
+     <div> 
+     {Object.entries(dict).map( ([key, value]) => <p> {value.name}: {value.totaltime}</p> )}
+    
+     </div>
+     <form onSubmit = {props.submit(dict)}>
+     <button type="submit" style={{marginLeft:"50%"}}>Send</button>
+     </form>
+     </React.Fragment>
   ) 
 };
 

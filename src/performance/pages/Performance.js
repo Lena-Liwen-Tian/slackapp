@@ -16,7 +16,7 @@ const Performance = () => {
     const fetchPerformance = async()=>{
       setisLoading(true);
       try{          
-        const response= await fetch(`http://localhost:5000/api/data`); 
+        const response= await fetch(`https://slack-app-ironroots-new.herokuapp.com/api/data`); 
         const responseData = await response.json();
         if(!response.ok){
     
@@ -47,7 +47,14 @@ const Performance = () => {
   // const errorHandler = () =>{
   //   setError=(null);
   // }
-   
+  const submit = e => {
+    Object.entries(e).map( ([key, value]) => 
+    fetch(`https://hooks.zapier.com/hooks/catch/2239199/oas9d6e`,{
+      method:'POST',
+      body:JSON.stringify({value})
+   })
+    )
+  }
   
 
 
@@ -56,7 +63,9 @@ const Performance = () => {
      {/* <PaginationPage postsPerPage={postsPerPage} totalPosts={LoadedMovies.length} paginate={paginate}/> */}
      {/* isLoading && <div><LoadingSpinner /></div>) */}
      {!isLoading && <Title/>}
-     {!isLoading && <Calculate items={LoadedPeformance}/>}
+  
+     
+     {!isLoading && <Calculate submit = {submit} items={LoadedPeformance}/>}
      <br></br>
      <hr></hr>
      <br></br>
