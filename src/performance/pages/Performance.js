@@ -47,14 +47,7 @@ const Performance = () => {
   // const errorHandler = () =>{
   //   setError=(null);
   // }
-  const submit = e => {
-    Object.entries(e).map( ([key, value]) => 
-    fetch(`https://hooks.zapier.com/hooks/catch/2239199/oas9d6e`,{
-      method:'POST',
-      body:JSON.stringify({value})
-   })
-    )
-  }
+
   
 
 
@@ -65,7 +58,7 @@ const Performance = () => {
      {!isLoading && <Title/>}
   
      
-     {!isLoading && <Calculate submit = {submit} items={LoadedPeformance}/>}
+     {!isLoading && <Calculate items={LoadedPeformance}/>}
      <br></br>
      <hr></hr>
      <br></br>

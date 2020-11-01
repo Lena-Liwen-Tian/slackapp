@@ -164,9 +164,9 @@ const Calculate = props => {
      {Object.entries(dict).map( ([key, value]) => <p> {value.name}: {value.totaltime}</p> )}
     
      </div>
-     <form onSubmit = {props.submit(dict)}>
+     {/* <form onSubmit = {props.submit(dict)}>
      <button type="submit" style={{marginLeft:"50%"}}>Send</button>
-     </form>
+     </form> */}
      </React.Fragment>
   ) 
 };
