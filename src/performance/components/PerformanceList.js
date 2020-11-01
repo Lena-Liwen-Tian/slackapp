@@ -8,9 +8,7 @@ const PerformanceList = props => {
   if (props.items.length === 0) {
     return (
       <div className="center">
-   
           <h2>No performance.</h2>
-    
       </div>
     );
   }
