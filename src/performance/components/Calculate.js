@@ -9,17 +9,14 @@ import moment from 'moment';
 const Calculate = props => {
     console.log(props);
     const startOfWeek = moment().startOf('week');
-    console.log(startOfWeek);
-    console.log(props.items);
+
     let dict = {};
     // var last = new Date(new Date().getTime() - (4 * 24 * 60 * 60 * 1000  + 11 * 60 * 60 * 1000));
     
     props.items.map(item=>{
-        console.log(item);
-        console.log(item.time);
+
         var last = moment(item.time);
-        console.log(last);
-        console.log(last.diff(startOfWeek));
+ 
         if(!(item.userid in dict) || last.diff(startOfWeek) > 0){
                console.log(dict);
                dict[item.userid] = {"name":item.name,"time":last,"totaltime":item.workinghour};
