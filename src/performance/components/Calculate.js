@@ -8,17 +8,23 @@ import moment from 'moment';
 
 const Calculate = props => {
     const startOfWeek = moment().startOf('week');
+    console.log(startOfWeek);
     console.log(props.items);
     let dict = {};
     // var last = new Date(new Date().getTime() - (4 * 24 * 60 * 60 * 1000  + 11 * 60 * 60 * 1000));
     
     props.items.map(item=>{
+        console.log(item);
+        console.log(item.time);
         var last = moment(item.time);
         console.log(last);
-        if(!dict.hasOwnProperty(item.userid) && last.diff(startOfWeek) > 0){
+        console.log(last.diff(startOfWeek));
+        if(!(item.userid in dict) || last.diff(startOfWeek) > 0){
+               console.log(dict);
                dict[item.userid] = {"name":item.name,"time":last,"totaltime":item.workinghour};
     //         dict[item.userid] = {"name":item.name,"status":[],"time":[],"totaltime":""};
         }else{
+
            if(last.diff(dict[item.userid].time) > 0){
                dict[item.userid].totaltime = item.workinghour;
            }
