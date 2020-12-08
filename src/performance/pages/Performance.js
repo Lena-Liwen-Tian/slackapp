@@ -16,7 +16,7 @@ const Performance = () => {
     const fetchPerformance = async()=>{
       setisLoading(true);
       try{          
-        const response= await fetch(`http://localhost:5000/api/data`); 
+        const response= await fetch(`https://slack-app-ironroots-new.herokuapp.com/api/data`); 
         const responseData = await response.json();
         if(!response.ok){
     
