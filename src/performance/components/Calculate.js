@@ -7,6 +7,7 @@ import moment from 'moment';
 
 
 const Calculate = props => {
+    console.log(props);
     const startOfWeek = moment().startOf('week');
     console.log(startOfWeek);
     console.log(props.items);
